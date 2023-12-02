@@ -24,6 +24,11 @@ const dashboard = $(".dashboard");
 const theme = $("#theme");
 let index = 0;
 
+const root = document.querySelector(':root');
+
+const THEME_COLOR_LOFI = "#042f64"
+const THEME_COLOR_SPEEP_UP = "#d74d1a"
+
 const LOFI_SONGS = [
   {
     id: 1,
@@ -237,6 +242,14 @@ const SPEED_UP_SONGS = [
     path: "./assets/music/unfollow-freaky.mp3",
     img: "./assets/img/cat13.jpg",
   },
+  {
+    id: 27,
+    type: "speed_up",
+    name: "Gu",
+    singer: "❦ Freaky, Seachains",
+    path: "./assets/music/gu-freaky-seachains.mp3",
+    img: "./assets/img/cat2.jpg",
+  },
 ]
 
 const randomNumber = (max) => Math.floor(Math.random() * max);
@@ -347,7 +360,9 @@ const app = {
     changeBtn.onclick = function () {
       const isTypeLofi = SONGS_RENDER?.[0]?.type === "lofi"
       SONGS_RENDER = isTypeLofi ? SPEED_UP_SONGS : LOFI_SONGS;
-      changeBtn.textContent = isTypeLofi ? "LOFI MODE" : "SPEED UP MODE"
+      changeBtn.textContent = isTypeLofi ? "Switching to Lofi" : "Switching to Speed up"
+      player.style.backgroundImage = isTypeLofi ? `url("./assets/img/bg-2.jpg")` : `url("./assets/img/bg-1.gif")`
+      root.style.setProperty('--primary-color', isTypeLofi ? THEME_COLOR_SPEEP_UP : THEME_COLOR_LOFI);
       _this.currentIndex = randomNumber(SONGS_RENDER.length)
       _this.songs = SONGS_RENDER;
       _this.render();
@@ -392,7 +407,7 @@ const app = {
       });
   },
   loadCurrentSong: function () {
-    changeBtn.textContent = this.currentSong.type === "lofi" ? "LOFI MODE" : "SPEED UP MODE"
+    changeBtn.textContent = this.currentSong.type === "lofi" ? "Switching to Lofi" : "Switching to Speed up"
     heading.textContent = this.currentSong.name;
     cdThumb.style.backgroundImage = `url("./assets/img/cat-g.gif")`;
     audio.src = this.currentSong.path;
