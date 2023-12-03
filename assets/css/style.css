@@ -87,7 +87,7 @@ header h2 {
   background-color: var(--bgc-color);
   padding: 8px 16px;
   border-radius: 12px;
-  font-size: 28px;
+  font-size: 24px;
   font-weight: 700;
   text-transform: uppercase;
   margin: 16px 0;
@@ -111,7 +111,6 @@ header h2 {
   background-size: cover;
   margin: auto;
   opacity: 0.85;
-  min-height: 348px;
 }
 
 /* CONTROL */
@@ -174,7 +173,6 @@ header h2 {
 .playlist {
   cursor: pointer;
   width: 30%;
-  height: 100vh;
   overflow-y: scroll;
   animation: fadeOut 0.5s ease;
 }
@@ -365,6 +363,11 @@ header h2 {
 
   .cd {
     width: 70vw;
+    height: 50vh;
+  }
+
+  .cd-thumb {
+    height: 100%;
   }
 
   .playlist-icon {
@@ -384,8 +387,6 @@ header h2 {
 
 .glass {
   position: relative;
-  width: 400px;
-  height: 400px;
   
   & + & {
     margin-left: 1rem;

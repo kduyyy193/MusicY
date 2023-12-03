@@ -1,9 +1,9 @@
 import { LOFI_SONGS, SPEED_UP_SONGS, THUMBNS } from './mock.js'
 import { THEME_COLOR_LOFI, THEME_COLOR_SPEEP_UP, IMG_GU } from './constants.js'
+import { randomNumber } from './utils.js';
 
 const $ = document.querySelector.bind(document);
 const $$ = document.querySelectorAll.bind(document);
-const _$ = document.getElementsByClassName.bind(document)
 
 const heading = $("header h2 ");
 const cdThumb = $(".cd-thumb");
@@ -13,28 +13,26 @@ const playBtn = $(".btn-toggle-play");
 const player = $(".player");
 const changeBtn = $("#btn-change");
 
-const progress = $("#progress");
-
 const nextBtn = $(".btn-next");
 const prevBtn = $(".btn-prev");
 const randomBtn = $(".btn-random");
 const repeatBtn = $(".btn-repeat");
-
 const playlist = $(".playlist");
-
 const menu = $(".playlist-icon");
 const dashboard = $(".dashboard");
 const theme = $("#theme");
-let index = 0;
 
 const root = document.querySelector(':root');
 
 let SONGS_RENDER = LOFI_SONGS
-const randomNumber = (max) => Math.floor(Math.random() * max);
-if (randomNumber(10) % 2 === 0) {
-  SONGS_RENDER = SPEED_UP_SONGS
-  root.style.setProperty('--primary-color', THEME_COLOR_SPEEP_UP);
+
+function initialData() {
+  if (randomNumber(10) % 2 === 0) {
+    SONGS_RENDER = SPEED_UP_SONGS
+    root.style.setProperty('--primary-color', THEME_COLOR_SPEEP_UP);
+  }
 }
+initialData ();
 
 const app = {
   isPlaying: false,
@@ -140,7 +138,7 @@ const app = {
     changeBtn.onclick = function () {
       const isTypeLofi = SONGS_RENDER?.[0]?.type === "lofi"
       SONGS_RENDER = isTypeLofi ? SPEED_UP_SONGS : LOFI_SONGS;
-      changeBtn.textContent = isTypeLofi ? "Switching to Lofi" : "Switching to Speed up"
+      changeBtn.textContent = isTypeLofi ? "Switch to Lofi" : "Switch to Speed up"
       player.style.backgroundImage = isTypeLofi ? `url("./assets/img/bg-2.jpg")` : `url("./assets/img/bg-1.gif")`
       root.style.setProperty('--primary-color', isTypeLofi ? THEME_COLOR_SPEEP_UP : THEME_COLOR_LOFI);
       _this.currentIndex = randomNumber(SONGS_RENDER.length)
@@ -188,7 +186,7 @@ const app = {
   },
   loadCurrentSong: function () {
     const myId = this.currentSong.id === 27
-    changeBtn.textContent = this.currentSong.type === "lofi" ? "Switching to Lofi" : "Switching to Speed up"
+    changeBtn.textContent = this.currentSong.type === "lofi" ? "Switch to Speed up" : "Switch to Lofi"
     heading.textContent = this.currentSong.name;
     cdThumb.style.backgroundImage = myId ? `url(${IMG_GU})` : `url(${THUMBNS[randomNumber(THUMBNS.length)]})`;
     audio.src = this.currentSong.path;
