@@ -1,6 +1,6 @@
 :root {
-  /* --primary-color: #042f64; */
-  --primary-color: #d74d1a;
+  --primary-color: #042f64;
+  /* --primary-color: #d74d1a; */
   --text-color: #ffffff99;
   --bgc-color: rgba(255, 255, 255, 0.8);
 }
@@ -34,7 +34,7 @@ body {
 
 .player {
   position: relative;
-  height: 100svh;
+  height: 100vh;
   background-image: url("../img/bg-2.jpg");
 }
 
@@ -378,4 +378,60 @@ header h2 {
 
 .display-block {
   display: block;
+}
+
+
+
+.glass {
+  position: relative;
+  width: 400px;
+  height: 400px;
+  
+  & + & {
+    margin-left: 1rem;
+  }
+  
+  &:after,
+  &:before {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    mask-position: 50% 50%;
+    transition: mask-size .75s;
+    transition-property: mask-size, background-position;
+  }
+}
+
+glass--1 {
+  &,
+  &:after,
+  &:before {
+    background: url(https://source.unsplash.com/random/800x800?spring);
+    background-size: 110% 110%;
+  }
+  
+  &:after,
+  &:before {
+    mask-image: linear-gradient(to right bottom, white 51%, rgba(0,0,0,0) 0);
+    mask-size: var(--tile) var(--tile);
+    mask-position: 50% 50%;
+  }
+  
+  &:after {
+    background-position: -.5vw -.5vw;
+    mask-image: linear-gradient(to left top, white 51%, rgba(0,0,0,0) 0);
+  }
+  
+  &:hover:before,
+  &:hover:after {
+    --tile: 100px;
+    mask-size: calc(var(--tile) * .45) calc(var(--tile) * 1.5) ;
+  }
+  &:hover:after {
+    background-position: -1vw -1vw;
+  }
 }
