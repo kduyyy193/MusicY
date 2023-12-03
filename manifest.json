@@ -4,7 +4,7 @@
     "description": "l o v e s o n g < 3",
     "theme_color": "#ffffff99",
     "background_color": "#042f64",
-    "display": "fullScreen",
+    "display": "standalone",
     "orientation": "portrait",
     "scope": "/index",
     "start_url": "index",
