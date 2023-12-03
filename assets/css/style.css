@@ -34,7 +34,8 @@ body {
 
 .player {
   position: relative;
-  height: 100vh;
+  height: 100svh;
+  /* height: 100%; */
   background-image: url("../img/bg-2.jpg");
 }
 
@@ -341,7 +342,6 @@ header h2 {
 @media only screen and (max-width: 800px) {
   .player {
     width: 100%;
-    overflow: hidden;
   }
 
   #theme {
@@ -363,7 +363,7 @@ header h2 {
 
   .cd {
     width: 70vw;
-    height: 50vh;
+    height: 40vh;
   }
 
   .cd-thumb {
