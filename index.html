@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta
+			name="viewport"
+			content="width=device-width, initial-scale=1.0, user-scalable=no"
+		/>
+  <title>M u s i c y</title>
+  <link rel="icon" href="assets/img/favicon.png" type="image/x-icon" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"
+    integrity="sha512-HK5fgLBL+xu6dm/Ii3z4xhlSUyZgTT9tuc/hSrtw6uzJOvgRr2a9jyxxT1ely+B+xFAmJKVSTbpM/CuL7qxO8w=="
+    crossorigin="anonymous" />
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <meta name="theme-color" content="#042f64" />
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="apple-touch-icon" href="assets/icons/icon-152x152.png" />
+  <meta name="apple-mobile-web-app-title" content="musicy" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-touch-fullscreen" content="yes" />
+  <link rel="apple-touch-startup-image"
+    media="(device-width: 375px) and (device-height: 812px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)"
+    href="assets/icons/icon-72x72.png">
+  <link rel="apple-touch-startup-image"
+    media="(device-width: 375px) and (device-height: 667px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)"
+    href="assets/icons/icon-96x96.png">
+  <link rel="apple-touch-startup-image"
+    media="(device-width: 414px) and (device-height: 736px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)"
+    href="assets/icons/icon-128x128.png">
+  <link rel=" apple-touch-startup-image"
+    media="(device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)"
+    href="assets/icons/icon-144x144.png">
+  <link rel="apple-touch-startup-image"
+    media="(device-width: 768px) and (device-height: 1024px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)"
+    href="assets/icons/icon-152x152.png">
+  <link rel="apple-touch-startup-image"
+    media="(device-width: 834px) and (device-height: 1112px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)"
+    href="assets/icons/icon-192x192.png">
+  <link rel="apple-touch-startup-image"
+    media="(device-width: 1024px) and (device-height: 1366px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)"
+    href="assets/icons/icon-512x512.png">
+</head>
+
+<body>
+  <div class="player">
+    <div class="flex h-full">
+      <div class="dashboard">
+        <div>
+          <button id="btn-change" class="btn-change" role="button">Change Mode</button>
+        </div>
+        <header>
+          <h2>Ỏoooo</h2>
+        </header>
+        <div class="cd">
+          <div class="cd-thumb glass glass--1">
+          </div>
+        </div>
+        <div id="theme">
+          <span class="ani-text"></span>
+        </div>
+
+        <div class="control">
+          <div class="btn btn-repeat">
+            <i class="fas fa-redo"></i>
+          </div>
+          <div class="btn btn-prev">
+            <i class="fas fa-step-backward"></i>
+          </div>
+          <div class="btn btn-toggle-play">
+            <i class="fas fa-pause icon-pause"></i>
+            <i class="fas fa-play icon-play"></i>
+          </div>
+          <div class="btn btn-next">
+            <i class="fas fa-step-forward"></i>
+          </div>
+          <div class="btn btn-random">
+            <i class="fas fa-random"></i>
+          </div>
+        </div>
+
+        <audio id="audio" autoplay="true" src=""></audio>
+      </div>
+      <div class="playlist">
+      </div>
+    </div>
+  </div>
+  <div class="playlist-icon">
+    <i class="fas fa-list-alt"></i>
+  </div>
+  <script type="module" src="app.js"></script>
+  <script src="assets/css/typed.js"></script>
+  <script>
+    var options = {
+      strings: [
+        "y c i s u m "
+      ],
+      typeSpeed: 50,
+      backSpeed: 50,
+    };
+
+    var typed = new Typed(".ani-text", options);
+  </script>
+</body>
+
+</html>
